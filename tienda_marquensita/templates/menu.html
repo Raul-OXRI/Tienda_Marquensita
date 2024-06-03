@@ -5,7 +5,7 @@
 <header class="sticky-top navbar-header">
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-3">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="{% url 'start' %}">
                 {% load static %}
                 <img src="{% static '/img/logo.png' %}" width="45" height="45" class="d-inline-block align-middle"
                     alt="logo de la tienda">
@@ -19,8 +19,16 @@
                 <ul class="navbar-nav flex-grow-1">
                     <!-- Links -->
                     <li class="nav-item">
-                        <a class="nav-link" href="#"><i class="bi bi-clipboard2-pulse-fill"></i>
+                        <a class="nav-link" href="{% url 'products' %}"><i class="bi bi-clipboard2-pulse-fill"></i>
                             productos</a>
+                    </li>
+                    <li>
+                        <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-car-front-fill"></i> Productos
+                          </button>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a href="{% url 'crudproductos' %}" class="dropdown-item"></a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
