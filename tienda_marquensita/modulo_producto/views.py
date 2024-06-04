@@ -20,8 +20,8 @@ def productocrud(request):
     productos = Producto.objects.filter(estado='1')  # Assuming '1' is the string for the active state
     return render(request, "crud_productos.html", {'form': form, 'productos': productos})
 
-def eliminar_producto(request, id_producto):
-    producto = get_object_or_404(Producto, id=id_producto)
+def eliminar_producto(request, producto_id):
+    producto = get_object_or_404(Producto, id=producto_id)
     producto.estado = '0'  # Assuming '0' is the string for the inactive state
     producto.save()
     return redirect('products')

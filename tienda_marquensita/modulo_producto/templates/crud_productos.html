@@ -39,14 +39,14 @@
                 <tbody>
                     {% for producto in productos %}
                     <tr>
-                        <td>{{ producto.id }}</td>
+                        <td>{{ producto.producto_id }}</td>
                         <td>{{ producto.nombre_producto }}</td>
                         <td>{{ producto.descripcion_producto }}</td>
                         <td>{{ producto.precio_producto }}</td>
                         <td>{{ producto.stock_producto }}</td>
                         <td>{{ producto.fecha_creacion_producto }}</td>
                         <td>
-                            <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display:inline;">
+                            <form method="post" action="{% url 'downproducto' producto.producto_id %}" style="display:inline;">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Eliminar</button>
                             </form>

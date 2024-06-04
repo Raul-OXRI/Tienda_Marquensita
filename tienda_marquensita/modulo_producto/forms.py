@@ -10,6 +10,7 @@ class ProductoForm(forms.ModelForm):
             'precio_producto', 
             'stock_producto', 
             'imagen_producto',
+            'estado',
         ]
 
     estado = forms.CharField(max_length=50, initial='1', required=False)
