@@ -33,6 +33,7 @@
                         <th scope="col">Precio</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Fecha Creación</th>
+                        <th scope="col">Acciones</th> <!-- Added for action buttons -->
                     </tr>
                 </thead>
                 <tbody>
@@ -45,10 +46,10 @@
                         <td>{{ producto.stock_producto }}</td>
                         <td>{{ producto.fecha_creacion_producto }}</td>
                         <td>
-                          <form method="post" action="{% url 'delete_product' producto.id %}" style="display:inline;">
-                            {% csrf_token %}
-                            <button type="submit" class="btn btn-danger">Eliminar</button>
-                        </form>
+                            <form method="post" action="{% url 'eliminar_producto' producto.id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
                         </td>
                     </tr>
                     {% endfor %}
@@ -59,42 +60,41 @@
 </div>
 
 <section>
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                  <form method="post">
-                      {% csrf_token %}
-                      {{ form.as_p }}
-                      {% if form.errors %}
-                          <div class="alert alert-danger">
-                              <ul>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar Producto</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {% if form.errors %}
+                            <div class="alert alert-danger">
+                                <ul>
                                     {% for field in form %}
-                                    {% for error in field.errors %}
-                                    <li>{{ error }}</li>
-                                    {% endfor %}
+                                        {% for error in field.errors %}
+                                            <li>{{ error }}</li>
+                                        {% endfor %}
                                     {% endfor %}
                                     {% for error in form.non_field_errors %}
-                                    <li>{{ error }}</li>
+                                        <li>{{ error }}</li>
                                     {% endfor %}
                                 </ul>
                             </div>
-                      {% endif %}
-                      <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-                          <button type="submit" class="btn btn-primary">Guardar cambios</button>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  </div>
+                        {% endif %}
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
-
 
 {% endblock main_content %}
