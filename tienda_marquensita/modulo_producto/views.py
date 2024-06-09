@@ -21,7 +21,8 @@ def productocrud(request):
     return render(request, "crud_productos.html", {'form': form, 'productos': productos})
 
 def eliminar_producto(request, producto_id):
-    producto = get_object_or_404(Producto, id=producto_id)
+    producto = get_object_or_404(Producto, producto_id=producto_id)
     producto.estado = '0'  # Assuming '0' is the string for the inactive state
     producto.save()
     return redirect('products')
+

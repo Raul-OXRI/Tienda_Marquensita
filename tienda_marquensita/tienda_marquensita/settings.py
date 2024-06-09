@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     # --- APLICACIONES ---
     'modulo_dashboard',
     'modulo_producto',
+    'modulo_usuario',
 ]
 
 MIDDLEWARE = [

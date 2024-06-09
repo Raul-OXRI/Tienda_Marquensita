@@ -1,0 +1,63 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+
+
+{% block main_content %}
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center">Bienvenido a la tienda marquensita</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Inicia sesión</h2>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Regístrate</h2>
+        </div>
+        <div class="col-md-12 d-flex justify-content-center">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">
+                Crear cuenta <i class="bi bi-clipboard-plus-fill"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+<section>
+    <!-- Modal -->
+    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="registerModalLabel">REGISTRATE</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {{ form }}
+                        <button type="submit" class="btn btn-primary">Registrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<a href="createcliente">CREAR USER</a>
+
+
+
+{% endblock main_content %}
