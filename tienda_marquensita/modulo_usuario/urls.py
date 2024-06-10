@@ -4,9 +4,10 @@ from . import views
 
 urlpatterns = [
     path ('', views.cliente, name='clients'),
-    path ('crudclientes/', views.clientecrud, name='crudclientes'),
-    #path ('downcliente/<int:cliente_id>/', views.eliminar_cliente, name='downcliente')
-    path ('createcliente/', views.clientecrud, name='createcliente'),
+    
+    path ('downcliente/<int:cliente_id>/', views.eliminar_cliente, name='downcliente'),
+    path ('createcliente/', views.clientecreate, name='createcliente'),
+    path ('clientelist/', views.clientelist, name='clientelist'),
 ]
 
 

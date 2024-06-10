@@ -11,4 +11,58 @@
 
 <h1>CRUD CLIENTE</h1>
 
+
+
+
+
+<div class="container m-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo</th>
+                        <th scope="col">Teléfono</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Fecha de Registro</th>
+                        <th scope="col">Acciones</th> <!-- Added for action buttons -->
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for cliente in clientes %}
+                    <tr>
+                        <td>{{ cliente.cliente_id }}</td>
+                <td>{{ cliente.nombre_client }}</td>
+                <td>{{ cliente.apellido_client }}</td>
+                <td>{{ cliente.correo_client }}</td>
+                <td>{{ cliente.telefono_client }}</td>
+                <td>{{ cliente.direccion_client }}</td>
+                <td>{{ cliente.fecha_registro_client }}</td>
+                        <td>
+                            <form method="post" action="{% url 'downcliente' cliente.cliente_id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 {% endblock main_content %}

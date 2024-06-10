@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'modulo_dashboard',
     'modulo_producto',
     'modulo_usuario',
+    'modulo_empleado',
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ---- configuracion de archivos multimedia ----
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#AUTH_USER_MODEL = 'modulo_empleado.Empleado'

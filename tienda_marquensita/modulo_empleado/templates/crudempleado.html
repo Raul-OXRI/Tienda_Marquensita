@@ -1,0 +1,59 @@
+{% extends "menu.html" %}
+
+{% load static %}
+
+{% block head %}
+{% endblock head %}
+
+
+
+{% block main_content %}
+
+
+<section>
+    <div class="container m-4" style="display: flex; justify-content: flex-end;">
+        <div class="row">
+            <div class="col-md-12">
+                <a href="{% url 'createempleado' %}" class="btn btn-success">Crear empleado</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="container m-4">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">cod empleador</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Correo electronico</th>
+                        <th scope="col">Fecha registro</th>
+                        <th scope="col">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in empleados %}
+                    <tr>
+                        <td>{{ empleado.empleado_id }}</td>
+                        <td>{{ empleado.nombre_empleado }}</td>
+                        <td>{{ empleado.apellido_empleado }}</td>
+                        <td>{{ empleado.correo_empleado }}</td>
+                        <td>{{ empleado.fecha_registro_empleado }}</td>
+                        <td>
+                            <form method="post" action="{% url 'downempleado' empleado.empleado_id %}" style="display:inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Eliminar</button>
+                            </form>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock main_content %}

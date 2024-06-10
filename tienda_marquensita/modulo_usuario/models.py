@@ -11,7 +11,7 @@ class Cliente(models.Model):
     direccion_client = models.CharField(max_length=50, null=True, blank=True)
     fecha_registro_client = models.DateTimeField(auto_now_add=True, )  
     password = models.CharField(max_length=128)
-    estado = models.CharField(max_length=50, null=True, blank=True)
+    estado = models.CharField(max_length=50, default='1')
     
 
     def save(self, *args, **kwargs):

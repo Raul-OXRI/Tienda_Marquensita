@@ -1,18 +1,16 @@
 from django import forms
-from .models import Cliente
+from .models import Empleado
 
-class ClienteForm(forms.ModelForm):
+class EmpleadoForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())
     confirm_password = forms.CharField(widget=forms.PasswordInput(), label='Confirmar contraseña')
     
     class Meta:
-        model = Cliente
+        model = Empleado
         fields = [
-            'nombre_client', 
-            'apellido_client', 
-            'correo_client', 
-            'telefono_client', 
-            'direccion_client', 
+            'nombre_empleado', 
+            'apellido_empleado', 
+            'correo_empleado', 
             'password', 
         ]
     

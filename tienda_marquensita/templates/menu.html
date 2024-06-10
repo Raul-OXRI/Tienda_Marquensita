@@ -19,19 +19,25 @@
                 <ul class="navbar-nav flex-grow-1">
                     <!-- Links  -->
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'products' %}"><i class="bi bi-clipboard2-pulse-fill"></i>
+                        <a class="nav-link" href="{% url 'products' %}">
                             productos</a>
                     </li>
                     <li>
                         <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-car-front-fill"></i> Registros
+                             Registros
                           </button>
                         <ul class="dropdown-menu dropdown-menu-dark">
-                            <li><a href="{% url 'crudproductos' %}" class="dropdown-item">CRUD PRODUCTOS</a></li>
+                            <li><a href="{% url 'crudproductos' %}" class="dropdown-item"><i class="bi bi-basket"></i>
+                                CRUD PRODUCTOS</a></li>
+                            <li><a href="{% url 'clientelist' %}" class="dropdown-item"><i class="bi bi-person-check-fill"></i>
+                                CRUD CLIENTE</a></li>
+                            <li><a href="{% url 'empleado' %}" class="dropdown-item"><i class="bi bi-people-fill"></i>
+                                CRUD EMPLEADOS
+                            </a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'clients' %}"><i class="bi bi-clipboard2-pulse-fill"></i>
+                        <a class="nav-link" href="{% url 'clients' %}"><i class="bi bi-person-circle"></i>
                             Iniciar sección</a>
                     </li>
                 </ul>

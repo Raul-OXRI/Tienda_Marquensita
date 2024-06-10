@@ -10,6 +10,7 @@
 {% block main_content %}
 
 
+<!-- FORMULARIO PARA INICIAR SECCION -->
 
 <div class="container">
     <div class="row">
@@ -20,43 +21,36 @@
     <div class="row">
         <div class="col-md-12">
             <h2 class="text-center">Inicia sesión</h2>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center">Regístrate</h2>
-        </div>
-        <div class="col-md-12 d-flex justify-content-center">
-            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#registerModal">
-                Crear cuenta <i class="bi bi-clipboard-plus-fill"></i>
-            </button>
+            <form action="tu_script_de_inicio_de_sesion.php" method="post">
+                <div class="form-group">
+                    <label for="username">Nombre de usuario:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Contraseña:</label>
+                    <input type="password" class="form-control" id="password" name="password" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+            </form>
         </div>
     </div>
 </div>
 
+
+
+<!-- Formulario de login -->
 <section>
-    <!-- Modal -->
-    <div class="modal fade" id="registerModal" tabindex="-1" aria-labelledby="registerModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="registerModalLabel">REGISTRATE</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="post" enctype="multipart/form-data">
-                        {% csrf_token %}
-                        {{ form }}
-                        <button type="submit" class="btn btn-primary">Registrar</button>
-                    </form>
-                </div>
-            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="text-center">Registrate</h2>
+        </div>
+        <div class="col-md-12 d-flex justify-content-center">
+            <a class="btn btn-success" href="createcliente">CREAR USER</a>
         </div>
     </div>
 </section>
 
-<a href="createcliente">CREAR USER</a>
+
 
 
 
